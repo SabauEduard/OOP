@@ -157,15 +157,17 @@ cout << check_participant("Johnny", "Nebunul", 100) // false
 
 ## Meniul Interactiv 
 
-**ATENTIE! La nume si prenume trebuie introduse cuvinte fara spatii, altfel programul crapa. Iar unde se cere punctajul trebuie un numar sau programul crapa. Unde se cere numarul optiunii se poate pune orice intrucat exceptiile sunt tratate.
+**ATENTIE! La nume si prenume trebuie introduse cuvinte fara spatii, altfel programul crapa. Iar unde se cere punctajul trebuie un numar sau programul crapa. Unde se cere numarul optiunii se poate pune orice intrucat exceptiile sunt tratate.**
 
-Primul meniu interactiv prezinta 4 optiuni initiale de la -1 la 2: 
+Primul meniu interactiv prezinta 4 optiuni initiale de la -1 la 2:
+
 -1 Programul se opreste.
 0 Se creeaza un nou concurs care va cere apoi introducerea unui nume.
 1 Se afiseaza concursurile existente
 2 Permite introducerea unui nume de concurs pe care apoi il va selecta din lista si va deschide noul meniu de optiuni
 
 Al doilea meniu interactiv prezinta optiuni de la 0 la 12:
+
 0 Se adauga un nou participant cu datele care urmeaza sa fie introduse.
 1 Sterge participantul cu datele care urmeaza sa fie introduse daca acesta exista.
 2 Permite schimbarea numelui concursului cu un nume care urmeaza sa fie introdus.

@@ -159,23 +159,25 @@ cout << check_participant("Johnny", "Nebunul", 100) // false
 
 **ATENTIE! La nume si prenume trebuie introduse cuvinte fara spatii, altfel programul crapa. Iar unde se cere punctajul trebuie un numar sau programul crapa. Unde se cere numarul optiunii se poate pune orice intrucat exceptiile sunt tratate.**
 
-Primul meniu interactiv prezinta 4 optiuni initiale de la -1 la 2: 
--1 Programul se opreste.
-0 Se creeaza un nou concurs care va cere apoi introducerea unui nume.
-1 Se afiseaza concursurile existente
-2 Permite introducerea unui nume de concurs pe care apoi il va selecta din lista si va deschide noul meniu de optiuni
+Primul meniu interactiv prezinta 4 optiuni initiale de la -1 la 2: </br>
 
-Al doilea meniu interactiv prezinta optiuni de la 0 la 12:
-0 Se adauga un nou participant cu datele care urmeaza sa fie introduse.
-1 Sterge participantul cu datele care urmeaza sa fie introduse daca acesta exista.
-2 Permite schimbarea numelui concursului cu un nume care urmeaza sa fie introdus.
-3 Se afiseaza lista tuturor participantilor.
-4 Se sorteaza crescator participantii.
-5 Se sorteaza descrescator participantii.
-6 Se afiseaza primii k participanti, k se citeste de la tastatura.
-7 Se afiseaza ultimii k participanti, k se citeste de la tastatura.
-8 Se afiseaza numarul participantilor.
-9 Se afiseaza media tuturor participantilor
-10 Se afiseaza cati participanti au punctajul mai mare sau egal cu p, citit de la tastatura.
-11 Se verifica daca participantul a fost deja introdus in concurs.
-12 Se revine la primul meniu.
+-1 Programul se opreste. </br>
+0 Se creeaza un nou concurs care va cere apoi introducerea unui nume. </br>
+1 Se afiseaza concursurile existente </br>
+2 Permite introducerea unui nume de concurs pe care apoi il va selecta din lista si va deschide noul meniu de optiuni </br>
+
+Al doilea meniu interactiv prezinta optiuni de la 0 la 12: </br>
+
+0 Se adauga un nou participant cu datele care urmeaza sa fie introduse. </br>
+1 Sterge participantul cu datele care urmeaza sa fie introduse daca acesta exista. </br>
+2 Permite schimbarea numelui concursului cu un nume care urmeaza sa fie introdus. </br>
+3 Se afiseaza lista tuturor participantilor. </br>
+4 Se sorteaza crescator participantii. </br>
+5 Se sorteaza descrescator participantii. </br>
+6 Se afiseaza primii k participanti, k se citeste de la tastatura. </br>
+7 Se afiseaza ultimii k participanti, k se citeste de la tastatura. </br>
+8 Se afiseaza numarul participantilor. </br>
+9 Se afiseaza media tuturor participantilor </br>
+10 Se afiseaza cati participanti au punctajul mai mare sau egal cu p, citit de la tastatura. </br>
+11 Se verifica daca participantul a fost deja introdus in concurs. </br>
+12 Se revine la primul meniu. </br>
