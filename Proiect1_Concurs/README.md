@@ -61,7 +61,7 @@ Concurs C3(C2) // concursul C3 va avea atributele concursului C2, se va copia do
 
 ### Metode si Functii
 
-1. void add_participant(string, string, double) sau void add_participant(Participant&)
+#### 1. void add_participant(string, string, double) sau void add_participant(Participant&)
 
 Functia add_participant poate primi ca parametrii doua string-uri si un double sau un obiect de tipul Participant. Aceasta va adauga participantul cu datele respective in vectorul de participanti al concursului.
 
@@ -71,7 +71,7 @@ MateInfoUB.add_participant(A);
 MateInfoUB.add_participant("Stanescu", "Lata", 200);
 ```
 
-2. void remove_participant(string, string, double) sau  void remove_participant(Participant&) sau void remove_poz(int)
+#### 2. void remove_participant(string, string, double) sau  void remove_participant(Participant&) sau void remove_poz(int)
 
 Functia remove_participant poate primi ca parametrii doua string-uri si un double sau un obiect de tipul Participant. Aceasta va cauta daca participantul cu datele respective exista si il va scoate din vectorul de participanti.
 
@@ -85,7 +85,7 @@ remove_participant(A); // va ramne doar "Stanescu Lata 200"
 remove_index(0); // vectorul de participanti va fi gol
 ```
 
-3. int get_nr_participanti() si string get_nume() si double get_medie() si void set_nume_concurs(string) 
+#### 3. int get_nr_participanti() si string get_nume() si double get_medie() si void set_nume_concurs(string) 
 
 Cei 3 get-eri returneaza size-ul vectorului de participanti, numele concursului si ultimul calculeaza media participantilor.
 
@@ -99,7 +99,7 @@ C1.set_nume_concurs("Ceva_la_urs"); // numele concursului devine "Ceva_la_urs"
 cout << C1.get_nume() << " " << C1.get_nr_participanti() << " " << C1.get_medie(); // Ceva_la_urs 2 158
 ```
 
-4. void afisk_inceput(int k) si void afisk_sfarsit(int k) si void afis()
+#### 4. void afisk_inceput(int k) si void afisk_sfarsit(int k) si void afis()
 
 Primele doua functii afiseaza primii k sau ultimii k participanti din vector.
 
@@ -115,7 +115,7 @@ C1.afisk_sfarsit(2) // Paun Tudor 100 '\n' Stanescu Lata 200 '\n'
 C1.afis() // Popescu Adrian 116 '\n' Stanescu Lata 200 '\n' Paun Tudor 100 '\n'
 ```
 
-5. int admisi_p(double p)
+#### 5. int admisi_p(double p)
 
 Returneaza numarul participantilor care au punctajul mai mare sau egal cu p.
 
@@ -127,7 +127,7 @@ C1.add_participant("Paun", "Tudor", 100);
 cout << C1.admisi_p(116); // 2
 ```
 
-6. void sort (bool reverse = 0)
+#### 6. void sort (bool reverse = 0)
 
 Sorteaza vectorul de participanti crescator sau descrescator dupa punctaj daca parametrul trimis are valoarea "true"
 
@@ -142,7 +142,7 @@ C1.sort(1);
 C1.afis() // Stanescu Lata 200 '\n' Popescu Adrian 116 '\n' Paun Tudor 100 '\n'
 ```
 
-7. bool check_participant(string, string, double) sau bool check_participant(Participant&)
+#### 7. bool check_participant(string, string, double) sau bool check_participant(Participant&)
 
 Verficia daca participantul cu atributele respective este in vectorul de participanti.
 
