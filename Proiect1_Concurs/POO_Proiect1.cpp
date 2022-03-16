@@ -94,7 +94,7 @@ int main()
                         cout << "Concursul cu numele " << nume << " este fost selectat." << '\n' << '\n';
                         cout << "Pentru a adauga un nou participant introduceti 0" << '\n';
                         cout << "Pentru a sterge un participant introduceti 1" << '\n';
-                        cout << "Pentru a schimba numele concursrului introduceti 2" << '\n';
+                        cout << "Pentru a schimba numele concursului introduceti 2" << '\n';
                         cout << "Pentru a afisa lista tututror participantilor introduceti 3" << '\n';
                         cout << "Pentru a sorta crescator participantii introduceti 4" << '\n';
                         cout << "Pentru a sorta descrescator participantii introduceti 5" << '\n';
