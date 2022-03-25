@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <cstring>
 #include <fstream>
 #include <algorithm>
 #include "Participant.h"
@@ -19,6 +20,28 @@ int find_concurs(string nume, vector <Concurs> &v)
         if (v[index].get_nume() == nume)
             return index;
     return -1;
+}
+bool IsFloat(string s)
+{
+    int nr_puncte = 0;
+    for (int index = 0; index < s.length(); index++)
+        if (strchr("0123456789.", s[index]) == NULL)
+            return false;
+        else if (s[index] == '.')
+        {
+            nr_puncte++;
+            if (nr_puncte > 1)
+                return false;
+        }
+
+    return true;
+}
+bool IsInt(string s)
+{
+    for (int index = 0; index < s.length(); index++)
+        if (strchr("0123456789", s[index]) == NULL)
+            return false;
+    return true;
 }
 int main()
 {
@@ -58,6 +81,7 @@ int main()
         cout << "Pentru a vedea concursurile existente introduceti 1" << '\n';
         cout << "Pentru a selecta un concurs din lista existenta introduceti 2" << '\n';
         cout << "Pentru a opri programul introduceti -1" << '\n';
+        cout << "Introduceti comanda dorita: ";
         
             string request1 = "";
             cin >> request1;
@@ -67,7 +91,8 @@ int main()
             {
                 cout << "Introduceti numele concursului = ";
                 string nume;
-                cin >> nume;
+                cin >> ws;
+                getline(cin, nume);
                 Concurs C(nume);
                 v.push_back(C);
                 cout << '\n';
@@ -84,14 +109,15 @@ int main()
             {
                 cout << "Introduceti numele concursului = ";
                 string nume;
-                cin >> nume;
+                cin >> ws;
+                getline(cin, nume);
                 int poz_concurs = find_concurs(nume, v);
                 if (poz_concurs == -1)
                     cout << "Concursul nu a fost gasit." << '\n';
                 else
                     while (true)
                     {
-                        cout << "Concursul cu numele " << nume << " este fost selectat." << '\n' << '\n';
+                        cout << "Concursul cu numele " << nume << " este selectat." << '\n' << '\n';
                         cout << "Pentru a adauga un nou participant introduceti 0" << '\n';
                         cout << "Pentru a sterge un participant introduceti 1" << '\n';
                         cout << "Pentru a schimba numele concursului introduceti 2" << '\n';
@@ -105,60 +131,66 @@ int main()
                         cout << "Pentru a afisa cati participanti au cel putin p puncte introduceti 10" << '\n';
                         cout << "Pentru a verifica daca un participant a fost inscris in concurs introduceti 11" << '\n';
                         cout << "Pentru a reveni la meniul anterior introduceti 12" << '\n';
+                        cout << "Introduceti comanda dorita: ";
                         string request2 = "";
                         cin >> request2;
                         cout << '\n';
 
                         if (request2 == "0")
                         {
-                            cout << "Introduceti numele participantului: ";
-                            string nume_participant;
-                            cin>>nume_participant;
-                            cout << '\n' << "Introduceti prenumele participantului: ";
-                            string prenume_participant;
-                            cin>>prenume_participant;
-                            cout << '\n' << "Introduceti punctajul participantului: ";
-                            try {
-                                double punctaj_participant;
-                                cin >> punctaj_participant;
-                                v[poz_concurs].add_participant(nume_participant, prenume_participant, punctaj_participant);
-                                cout << '\n' << "Participantul a fost adaugat cu succes!" << '\n' << '\n';
-                                string eroare = "Punctajul trebuie sa fie un numar";
-                                throw(eroare);
-                            }
-                            catch (string eroare)
-                            {
-                                cout << '\n' << eroare << '\n';
-                            }
+                        cout << "Introduceti numele participantului: ";
+                        string nume_participant;
+                        cin >> ws;
+                        getline(cin, nume_participant);
+                        cout << '\n' << "Introduceti prenumele participantului: ";
+                        string prenume_participant;
+                        cin >> ws;
+                        getline(cin, prenume_participant);
+                        cout << '\n' << "Introduceti punctajul participantului: ";                            
+                        string punctaj_participant_placeholder;
+                        double punctaj_participant;
+                        cin >> ws;
+                        getline(cin, punctaj_participant_placeholder);
+                        if (!IsFloat(punctaj_participant_placeholder))
+                        {
+                            cout << '\n' << "Punctajul introdus nu este in formatul acceptat(double)." << '\n' << '\n';
+                            continue;
+                        }
+                        punctaj_participant = stod(punctaj_participant_placeholder);
+                        v[poz_concurs].add_participant(nume_participant, prenume_participant, punctaj_participant);
+                        cout << '\n' << "Participantul a fost adaugat cu succes!" << '\n' << '\n';                                                                            
                         }
                         else if (request2 == "1")
                         {
                             cout << "Introduceti numele participantului: ";
                             string nume_participant;
-                            cin >> nume_participant;
+                            cin >> ws;
+                            getline(cin, nume_participant);
                             cout << '\n' << "Introduceti prenumele participantului: ";
                             string prenume_participant;
-                            cin >> prenume_participant;
+                            cin >> ws;
+                            getline(cin, prenume_participant);
                             cout << '\n' << "Introduceti punctajul participantului: ";
-                            try {
-                                double punctaj_participant;
-                                cin >> punctaj_participant;
-                                v[poz_concurs].remove_participant(nume_participant, prenume_participant, punctaj_participant);
-                                cout << '\n' << "Participantul a fost sters cu succes!" << '\n' << '\n';
-                                string eroare = "Punctajul trebuie sa fie un numar";
-                                throw(eroare);
-
-                            }
-                            catch (string eroare)
+                            
+                            string punctaj_participant_placeholder;
+                            double punctaj_participant;
+                            cin >> ws;
+                            getline(cin, punctaj_participant_placeholder);
+                            if (!IsFloat(punctaj_participant_placeholder))
                             {
-                                cout << '\n' << eroare << '\n';
+                                cout << '\n' << "Punctajul introdus nu este in formatul acceptat(double)." << '\n' << '\n';
+                                continue;
                             }
+                            punctaj_participant = stod(punctaj_participant_placeholder);
+                            v[poz_concurs].remove_participant(nume_participant, prenume_participant, punctaj_participant);
+                            cout << '\n' << "Participantul a fost sters cu succes!" << '\n' << '\n';                                                 
                         }
                         else if (request2 == "2")
                         {
                             cout << "Introduceti noul nume: ";
                             string new_name;
-                            cin >> new_name;
+                            cin >> ws;
+                            getline(cin, new_name);
                             v[poz_concurs].set_nume_concurs(new_name);
                             cout << '\n' << "Numele concursului a fost schimbat cu succes!" << '\n' << '\n';
                         }
@@ -179,38 +211,34 @@ int main()
                         }
                         else if (request2 == "6")
                         {
-                            cout << '\n' << "k = ";
-                            unsigned int k;
-                            cin >> k;
-                            try {
-                                v[poz_concurs].afisk_inceput(k);
-                                string eroare = "Valoarea depaseste numarul participantilor sau este negativa.";
-                                throw(eroare);
-
-                            }
-                            catch (string eroare)
-                            {
-                                cout << '\n' << eroare << '\n';
-                                continue;
-                            }
-                            cout << '\n';
+                        cout << '\n' << "k = ";
+                        unsigned int k;
+                        string k_placeholder;
+                        cin >> ws;
+                        getline(cin, k_placeholder);
+                        if (!IsInt(k_placeholder))
+                        {
+                            cout << '\n' << "Punctajul introdus nu este in formatul acceptat(unsigned integer)." << '\n' << '\n';
+                            continue;
+                        }
+                        k = stoi(k_placeholder);
+                        v[poz_concurs].afisk_inceput(k);                        
+                        cout << '\n';
                         }
                         else if (request2 == "7")
                         {
                             cout << '\n' << "k = ";
                             unsigned int k;
-                            cin >> k;
-                            try {
-                                v[poz_concurs].afisk_sfarsit(k);
-                                string eroare = "Valoarea depaseste numarul participantilor sau este negativa.";
-                                throw(eroare);
-
-                            }
-                            catch (string eroare)
+                            string k_placeholder;
+                            cin >> ws;
+                            getline(cin, k_placeholder);
+                            if (!IsInt(k_placeholder))
                             {
-                                cout << '\n' << eroare << '\n';
+                                cout << '\n' << "Punctajul introdus nu este in formatul acceptat(unsigned integer)." << '\n' << '\n';
                                 continue;
                             }
+                            k = stoi(k_placeholder);
+                            v[poz_concurs].afisk_sfarsit(k);                               
                             cout << '\n';
                         }
                         else if (request2 == "8")
@@ -223,42 +251,45 @@ int main()
                         }
                         else if (request2 == "10")
                         {
-                            cout << '\n' << "p = ";
-                            try {
-                                double punctaj_min;
-                                cin >> punctaj_min;
-                                cout << '\n' << "Numarul participantilor cu punctajul mai mare sau egal cu " << punctaj_min << " este de " << v[poz_concurs].admisi_p(punctaj_min) << '\n' << '\n';
-                                string eroare = "Punctajul trebuie sa fie un numar";
-                                throw(eroare);
-                            }
-                            catch (string eroare)
-                            {
-                                cout << '\n' << eroare << '\n';
-                            }
+                        cout << '\n' << "p = ";
+                        string punctaj_min_placeholder;
+                        double punctaj_min;
+                        cin >> ws;
+                        getline(cin, punctaj_min_placeholder);
+                        if (!IsFloat(punctaj_min_placeholder))
+                        {
+                            cout << '\n' << "Punctajul introdus nu este in formatul acceptat." << '\n' << '\n';
+                            continue;
+                        }
+                        punctaj_min = stod(punctaj_min_placeholder);
+                        cout << '\n' << "Numarul participantilor cu punctajul mai mare sau egal cu " << punctaj_min << " este de " << v[poz_concurs].admisi_p(punctaj_min) << '\n' << '\n';
+                        
                         }
                         else if (request2 == "11")
                         {
                             cout << "Introduceti numele participantului: ";
                             string nume_participant;
-                            cin >> nume_participant;
+                            cin >> ws;
+                            getline(cin, nume_participant);
                             cout << '\n' << "Introduceti prenumele participantului: ";
                             string prenume_participant;
-                            cin >> prenume_participant;
+                            cin >> ws;
+                            getline(cin, prenume_participant);
                             cout << '\n' << "Introduceti punctajul participantului: ";
-                            try {
-                                double punctaj_participant;
-                                cin >> punctaj_participant;
-                                Participant Temp(nume_participant, prenume_participant, punctaj_participant);
-                                if (v[poz_concurs].check_participant(Temp))
-                                    cout << '\n' << "Participantul este deja introdus in sistem." << '\n' << '\n';
-                                else cout << '\n' << "Participantul nu este introdus in sistem." << '\n' << '\n';
-                                string eroare = "Punctajul trebuie sa fie un numar";
-                                throw(eroare);
-                            }
-                            catch (string eroare)
+                            string punctaj_participant_placeholder;
+                            double punctaj_participant;
+                            cin >> ws;
+                            getline(cin, punctaj_participant_placeholder);
+                            if (!IsFloat(punctaj_participant_placeholder))
                             {
-                                cout << '\n' << eroare << '\n';
+                                cout << '\n' << "Punctajul introdus nu este in formatul acceptat(double)." << '\n' << '\n';
+                                continue;
                             }
+                            punctaj_participant = stod(punctaj_participant_placeholder);
+                            Participant Temp(nume_participant, prenume_participant, punctaj_participant);
+                            if (v[poz_concurs].check_participant(Temp))
+                                 cout << '\n' << "Participantul este deja introdus in sistem." << '\n' << '\n';
+                            else cout << '\n' << "Participantul nu este introdus in sistem." << '\n' << '\n';
                         }
                         else if (request2 == "12")
                         {

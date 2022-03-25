@@ -157,8 +157,6 @@ cout << check_participant("Johnny", "Nebunul", 100) // false
 
 ## Meniul Interactiv 
 
-**ATENTIE! La nume si prenume trebuie introduse cuvinte fara spatii, altfel programul crapa. Iar unde se cere punctajul trebuie un numar sau programul crapa. Unde se cere numarul optiunii se poate pune orice intrucat exceptiile sunt tratate.**
-
 Primul meniu interactiv prezinta 4 optiuni initiale de la -1 la 2: </br>
 
 -1 Programul se opreste. </br>
