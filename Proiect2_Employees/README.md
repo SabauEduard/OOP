@@ -91,10 +91,8 @@ User friendly commands that utilise most of the classes and their functions.
 ### 6 to show the december salary of an employee for the current year
 
 >Reads the id of an employee, searches for it in the employees vector and calculates the salary of said employee as follows: </br>
-For base employees it simply writes his usual salary. </br> </br>
-
-For part-time employees, if the contract is expired by then it writes an adequate message, if it expires that december, it will write 75% of the salary and if it expires later it will write the full salary. </br> </br>
-
+For base employees it simply writes his usual salary. 
+For part-time employees, if the contract is expired by then it writes an adequate message, if it expires that december, it will write 75% of the salary and if it expires later it will write the full salary.
 For full-time employees, it will write the normal salary plus a percentage of said salary (years active in company multiplied by part-time employees coaching).
 
 ## Error handling
