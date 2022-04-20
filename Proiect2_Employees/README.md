@@ -27,8 +27,8 @@ Input verification is conducted to see if type conversion to double is possible.
 
 3. Date hire_date
 
-Input verification is conducted to see if type conversion to int, string and int is possible. Moreover, the day needs to actually exist in said month
-the month needs to be an actual month, not necessarily lowercase, no restriction for the year but the date as a whole needs to be before the current date.
+Input verification is conducted to see if type conversion to int, string and int is possible. Moreover, the day needs to actually exist in said month,
+the month needs to be the name of an actual month, not necessarily lowercase, no restriction for the year but the date as a whole needs to be before the current date.
 
 ## Class Part_time
 
@@ -97,7 +97,7 @@ For full-time employees, it will write the normal salary plus a percentage of sa
 
 ## Error handling
 
-The program only throws integers that it then catches and passes to an error handling function that read the remaining datat and as garbage
+The program only throws integers that it then catches and passes to an error handling function that reads the remaining data as garbage
 and then writes an adequate message to the console.
 
 ```C++
