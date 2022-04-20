@@ -144,7 +144,7 @@ C1.afis() // Stanescu Lata 200 '\n' Popescu Adrian 116 '\n' Paun Tudor 100 '\n'
 
 #### 7. bool check_participant(string, string, double) sau bool check_participant(Participant&)
 
-Verficia daca participantul cu atributele respective este in vectorul de participanti.
+Verifica daca participantul cu atributele respective este in vectorul de participanti.
 
 ```C++
 Participant A("Popescu", "Adrian", 116);
